@@ -1,0 +1,145 @@
+package estruturas;
+
+import java.util.Scanner;
+
+public class Principal {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Lista lista = new Lista();
+        Pilha pilha = new Pilha();
+        Fila fila = new Fila();
+
+        int opcao;
+
+        do {
+            System.out.println("\n===== MENU PRINCIPAL =====");
+            System.out.println("1 - Testar Lista");
+            System.out.println("2 - Testar Pilha");
+            System.out.println("3 - Testar Fila");
+            System.out.println("4 - Sair");
+            System.out.print("Escolha uma opção: ");
+            opcao = sc.nextInt();
+
+            switch (opcao) {
+                case 1:
+                    menuLista(lista, sc);
+                    break;
+                case 2:
+                    menuPilha(pilha, sc);
+                    break;
+                case 3:
+                    menuFila(fila, sc);
+                    break;
+                case 4:
+                    System.out.println("Encerrando o programa...");
+                    break;
+                default:
+                    System.out.println("Opção inválida!");
+            }
+        } while (opcao != 4);
+
+        sc.close();
+    }
+
+    // ---------------------------
+    // MENU LISTA
+
+    public static void menuLista(Lista lista, Scanner sc) {
+        int opcao;
+        do {
+            System.out.println("\n--- MENU LISTA ---");
+            System.out.println("1 - Inserir elemento");
+            System.out.println("2 - Mostrar lista");
+            System.out.println("3 - Voltar");
+            System.out.print("Escolha: ");
+            opcao = sc.nextInt();
+
+            switch (opcao) {
+                case 1:
+                    System.out.print("Digite um valor: ");
+                    int valor = sc.nextInt();
+                    lista.inserir(valor);
+                    break;
+                case 2:
+                    lista.mostrar();
+                    break;
+                case 3:
+                    System.out.println("Voltando ao menu principal...");
+                    break;
+                default:
+                    System.out.println("Opção inválida!");
+            }
+        } while (opcao != 3);
+    }
+
+    // ---------------------------
+    // MENU PILHA
+
+    public static void menuPilha(Pilha pilha, Scanner sc) {
+        int opcao;
+        do {
+            System.out.println("\n--- MENU PILHA ---");
+            System.out.println("1 - Empilhar");
+            System.out.println("2 - Desempilhar");
+            System.out.println("3 - Verificar se está vazia");
+            System.out.println("4 - Voltar");
+            System.out.print("Escolha: ");
+            opcao = sc.nextInt();
+
+            switch (opcao) {
+                case 1:
+                    System.out.print("Digite um valor: ");
+                    int valor = sc.nextInt();
+                    pilha.empilhar(valor);
+                    break;
+                case 2:
+                    pilha.desempilhar();
+                    break;
+                case 3:
+                    System.out.println(pilha.estaVazia() ? "A pilha está vazia." : "A pilha contém elementos.");
+                    break;
+                case 4:
+                    System.out.println("Voltando ao menu principal...");
+                    break;
+                default:
+                    System.out.println("Opção inválida!");
+            }
+        } while (opcao != 4);
+    }
+
+    // ---------------------------
+    // MENU FILA
+  
+    public static void menuFila(Fila fila, Scanner sc) {
+        int opcao;
+        do {
+            System.out.println("\n--- MENU FILA ---");
+            System.out.println("1 - Enfileirar");
+            System.out.println("2 - Desenfileirar");
+            System.out.println("3 - Mostrar fila");
+            System.out.println("4 - Voltar");
+            System.out.print("Escolha: ");
+            opcao = sc.nextInt();
+
+            switch (opcao) {
+                case 1:
+                    System.out.print("Digite um valor: ");
+                    int valor = sc.nextInt();
+                    fila.enfileirar(valor);
+                    break;
+                case 2:
+                    fila.desenfileirar();
+                    break;
+                case 3:
+                    fila.mostrarFila();
+                    break;
+                case 4:
+                    System.out.println("Voltando ao menu principal...");
+                    break;
+                default:
+                    System.out.println("Opção inválida!");
+            }
+        } while (opcao != 4);
+    }
+}
