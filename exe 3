@@ -1,0 +1,28 @@
+public class Fila {
+    private int[] elementos = new int[5];
+    private int inicio = 0;
+    private int fim = 0;
+    private int tamanho = 0;
+
+    public void enfileirar(int valor) {
+        if (tamanho < 5) {
+            elementos[fim] = valor;
+            fim = (fim + 1) % 5;
+            tamanho++;
+        } else {
+            System.out.println("A fila está cheia!");
+        }
+    }
+
+    public int desenfileirar() {
+        if (tamanho > 0) {
+            int valor = elementos[inicio];
+            inicio = (inicio + 1) % 5;
+            tamanho--;
+            return valor;
+        } else {
+            System.out.println("A fila está vazia!");
+            return -1;
+        }
+    }
+}
