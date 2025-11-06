@@ -1,0 +1,24 @@
+package br.com.edino.arvore;
+
+public class Main {
+    public static void main(String[] args) {
+        ArvoreBinariaDeBusca arvore = new ArvoreBinariaDeBusca();
+
+        
+        int[] ra = {2, 4, 0, 1, 6, 2, 1};
+
+       
+        for (int num : ra) {
+            arvore.inserir(num);
+        }
+
+       // Exibindo os elementos em ordem crescente
+        System.out.println("Elementos em ordem crescente:");
+        arvore.emOrdem();
+        System.out.println(); // quebra de linha
+
+     
+        System.out.println("\nVisualização da árvore (de lado):");
+        arvore.imprimirLado();
+    }
+}
